@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-  .search-shell { margin-top: 16px; }
+  .search-shell { margin-top: 0; }
   .results-content .buy-label { margin: 0 0 45px !important; }
   .results-content .promo-banner { position: absolute; top: -1px; right: 0; margin: 0; }
   .results-content .sort-controls { margin-bottom: 65px; }
@@ -8,4 +8,293 @@
 @media (max-width: 767px) {
   .search-shell { margin-top: 0; }
   .results-content .promo-banner { position: static; }
+}
+
+/* Search bar fidelity layer based on the supplied BuyHive markup. */
+.search-shell {
+  height: auto;
+  min-height: 78px;
+  padding: 16px;
+  gap: 0;
+  border-radius: 8px;
+  font-size: 17px;
+}
+.categories-button {
+  flex: 0 0 auto;
+  min-width: 170px;
+  padding: 8px 16px !important;
+  font-size: 17px !important;
+}
+.categories-button .MuiSvgIcon-root {
+  font-size: 29px;
+}
+.search-field-wrap {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 0 20px;
+}
+.search-input-group {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 30px;
+  background: #fff;
+}
+.search-input {
+  flex: 1 1 auto;
+  height: auto;
+  min-width: 0;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+}
+.search-input input {
+  height: 38px;
+  padding: 0;
+  font-size: 20px;
+}
+.search-input input::placeholder {
+  color: #929292;
+  opacity: 1;
+}
+.category-select {
+  flex: 0 0 305px;
+  width: auto;
+  height: 38px;
+  margin-left: 0;
+  padding: 0 0 0 15px;
+  border-left: 1px solid #e0e0e0;
+  color: #c5ced9 !important;
+}
+.category-select .MuiSelect-select {
+  min-height: auto !important;
+  padding: 8px 45px 8px 0 !important;
+  font-size: 20px;
+}
+.category-select .MuiSvgIcon-root {
+  right: 5px;
+  font-size: 30px;
+  color: #929292;
+}
+.search-button {
+  flex: 0 0 auto;
+  min-width: 132px;
+  height: 52px;
+  margin-left: 0;
+  padding: 8px 40px !important;
+  font-size: 17px !important;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .search-field-wrap { padding: 0 12px; }
+  .category-select { flex-basis: 220px; }
+  .category-select .MuiSelect-select, .search-input input { font-size: 16px; }
+}
+
+@media (max-width: 767px) {
+  .search-shell {
+    height: 80px;
+    min-height: 80px;
+    padding: 16px 20px;
+    gap: 8px;
+    border-radius: 0;
+  }
+  .search-field-wrap { padding: 0; }
+  .search-input-group { height: 46px; padding: 4px 12px; }
+  .search-input { padding: 0 4px; }
+  .search-input input { height: 36px; font-size: 16px; }
+  .categories-button, .category-select { display: none; }
+  .search-button {
+    min-width: 48px;
+    width: 48px;
+    height: 48px;
+    padding: 0 !important;
+    margin-left: 0;
+    font-size: 0 !important;
+  }
+  .search-button .mobile-search-icon { display: block !important; font-size: 29px; }
+}
+
+/* Exact inspected desktop metrics for the BuyHive search bar. */
+@media (min-width: 1200px) {
+  .search-shell {
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 77.1px;
+    min-height: 77.1px;
+    padding: 16px;
+    background-color: rgb(242, 242, 242);
+    color: rgb(35, 31, 32);
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 17px;
+    line-height: 25.5px;
+  }
+
+  .categories-button {
+    align-items: center;
+    box-sizing: border-box;
+    flex: 0 0 145.875px;
+    width: 145.875px;
+    min-width: 145.875px;
+    height: 44px;
+    margin: 0;
+    padding: 8px 16px !important;
+    border: 0 !important;
+    border-radius: 9999px !important;
+    background-color: #fff !important;
+    color: rgb(35, 31, 32) !important;
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 25.5px;
+    text-transform: none !important;
+  }
+
+  .categories-button .MuiSvgIcon-root {
+    flex: 0 0 auto;
+    width: 29px;
+    height: 29px;
+    margin-right: 8px;
+    color: #00b2c9;
+    font-size: 29px;
+  }
+
+  .search-field-wrap {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 1 auto;
+    height: 45.1px;
+    min-width: 0;
+    padding: 0 20px;
+  }
+
+  .search-input-group {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 45.1px;
+    min-width: 0;
+    padding: 8px 12px;
+    border: 0.8px solid rgb(200, 199, 199);
+    border-radius: 9999px;
+    background-color: #fff;
+  }
+
+  .search-input {
+    align-self: stretch;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: 0 8px;
+    border: 0;
+    background: #fff;
+  }
+
+  .search-input input {
+    box-sizing: border-box;
+    height: 27.1px;
+    padding: 0;
+    color: rgb(35, 31, 32);
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 17px;
+    line-height: 25.5px;
+  }
+
+  .search-input input::placeholder {
+    color: rgb(146, 146, 146);
+    opacity: 1;
+  }
+
+  .category-select {
+    align-self: stretch;
+    box-sizing: border-box;
+    flex: 0 0 255px;
+    width: 255px;
+    height: 27.1px;
+    margin: 0;
+    padding: 0 0 0 12px;
+    border-left: 0.8px solid rgb(200, 199, 199);
+    border-radius: 0;
+    color: rgb(190, 199, 211) !important;
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 17px;
+  }
+
+  .category-select .MuiSelect-select {
+    box-sizing: border-box;
+    min-height: 27.1px !important;
+    padding: 0 45px 0 0 !important;
+    line-height: 25.5px;
+  }
+
+  .category-select .MuiSvgIcon-root {
+    right: 5px;
+    color: #929292;
+    font-size: 29px;
+  }
+
+  .search-button {
+    align-items: center;
+    box-sizing: border-box;
+    flex: 0 0 131.062px;
+    width: 131.062px;
+    min-width: 131.062px;
+    height: 41.5px;
+    margin: 0;
+    padding: 8px 40px !important;
+    border: 0 !important;
+    border-radius: 9999px !important;
+    background-color: rgb(0, 178, 201) !important;
+    color: #fff !important;
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 25.5px;
+    text-transform: none !important;
+  }
+}
+
+/* Header fidelity layer: measurements mirror the supplied BuyHive header markup. */
+.app-header { background: #fff !important; box-shadow: none !important; }
+.header-toolbar { width: 100%; min-height: 118px !important; }
+.header-logo { display: flex; width: 171px; height: 54px; flex: 0 0 171px; align-items: center; }
+.header-logo img { display: block; width: 171px; height: 54px; object-fit: contain; }
+.desktop-nav { margin-left: 48px !important; font-size: 16px; white-space: nowrap; }
+.desktop-nav a { color: #080b12; text-decoration: none; line-height: 24px; }
+.desktop-nav a:nth-child(1) { padding-right: 24px; }
+.desktop-nav a:nth-child(2), .desktop-nav a:nth-child(3), .desktop-nav a:nth-child(4) { padding: 0 24px; }
+.desktop-nav a:nth-child(5) { padding-left: 24px; }
+.mobile-signin { display: none; }
+.signin-button .MuiSvgIcon-root { font-size: 20px; }
+.cart-button { margin-left: 24px !important; padding: 4px 4px 6px 8px !important; }
+.cart-button .MuiSvgIcon-root { font-size: 29px; }
+.mobile-menu { margin-left: 12px !important; }
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .desktop-nav { margin-left: 26px !important; font-size: 14px; }
+  .desktop-nav a:nth-child(1) { padding-right: 9px; }
+  .desktop-nav a:nth-child(2), .desktop-nav a:nth-child(3), .desktop-nav a:nth-child(4) { padding: 0 9px; }
+  .desktop-nav a:nth-child(5) { padding-left: 9px; }
+  .cart-button { margin-left: 14px !important; }
+}
+
+@media (max-width: 767px) {
+  .header-toolbar { min-height: 102px !important; }
+  .header-logo { width: 150px; height: 51px; flex-basis: 150px; }
+  .header-logo img { width: 150px; height: 51px; }
+  .mobile-signin { display: block; margin-right: 8px; color: #231f20; font-size: 16px; }
+  .signin-button { display: none !important; }
+  .cart-button { margin-left: 0 !important; padding: 4px 3px !important; }
+  .cart-button .MuiSvgIcon-root { font-size: 29px; }
+  .mobile-menu { margin-left: 7px !important; padding: 4px !important; }
+  .mobile-menu .MuiSvgIcon-root { font-size: 31px; }
 }
