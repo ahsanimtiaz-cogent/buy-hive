@@ -8,7 +8,12 @@ import {
   Typography,
 } from "@mui/material";
 import type { FilterState } from "../../../types/catalog";
-import { locations, productCertificates, supplierCertificates } from "../../../data/catalog";
+import {
+  locations,
+  maxPrice,
+  productCertificates,
+  supplierCertificates,
+} from "../../../data/catalog";
 import { FilterSection } from "../FilterSection";
 
 interface FiltersProps {
@@ -52,7 +57,7 @@ export function Filters({ values, onChange }: FiltersProps) {
       <Slider
         value={values.price}
         min={0}
-        max={6900}
+        max={maxPrice}
         onChange={(_, value) => onChange({ ...values, price: value as [number, number] })}
         className="price-slider"
       />
@@ -60,6 +65,8 @@ export function Filters({ values, onChange }: FiltersProps) {
         <Typography className="filter-title">MOQ</Typography>
         <TextField
           placeholder="Less than"
+          value={values.moq}
+          onChange={(event) => onChange({ ...values, moq: event.target.value })}
           variant="standard"
           fullWidth
           className="filter-search moq-input"

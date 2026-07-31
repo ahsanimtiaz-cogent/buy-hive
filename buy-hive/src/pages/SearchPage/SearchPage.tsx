@@ -1,8 +1,9 @@
 import { Apps, Close } from "@mui/icons-material";
 import { Box, Button, Divider, Drawer, IconButton, Stack, Typography } from "@mui/material";
 import type { SelectChangeEvent } from "@mui/material/Select";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchProducts } from "../../api/products";
+import { maxPrice } from "../../data/catalog";
 import type { FilterState, Product } from "../../types/catalog";
 import { Filters } from "../../components/filter/Filters";
 import { ProductGrid } from "../../components/product/ProductGrid";
@@ -11,7 +12,8 @@ import { SearchBar } from "../../components/search/SearchBar";
 import { SearchToolbar } from "../../components/search/SearchToolbar";
 
 const initialFilters: FilterState = {
-  price: [0, 6900],
+  price: [0, maxPrice],
+  moq: "",
   productCertificates: [],
   supplierCertificates: [],
   locations: [],
@@ -25,25 +27,39 @@ export function SearchPage() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(initialFilters);
   const [products, setProducts] = useState<Product[]>([]);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchProducts()
-      .then(setProducts)
-      .catch((err) => setError(err instanceof Error ? err.message : "Failed to load products"))
-      .finally(() => setLoading(false));
-  }, []);
+    // ignore stops an older response from overwriting a newer one.
+    let ignore = false;
+    setLoading(true);
 
-  const visibleProducts = useMemo(
-    () =>
-      query
-        ? products.filter((product) =>
-            product.productName.toLowerCase().includes(query.toLowerCase()),
-          )
-        : products,
-    [query, products],
-  );
+    // Wait a bit so dragging the price slider does not fire a request per step.
+    const timer = setTimeout(() => {
+      fetchProducts(filters, query)
+        .then((data) => {
+          if (ignore) return;
+          setProducts(data.items);
+          setTotal(data.total);
+          setError(null);
+        })
+        .catch((err) => {
+          if (ignore) return;
+          setError(err instanceof Error ? err.message : "Failed to load products");
+        })
+        .finally(() => {
+          if (!ignore) setLoading(false);
+        });
+    }, 300);
+
+    return () => {
+      ignore = true;
+      clearTimeout(timer);
+    };
+  }, [filters, query]);
+
   const handleCategoryChange = (event: SelectChangeEvent) => setCategory(event.target.value);
 
   return (
@@ -63,7 +79,7 @@ export function SearchPage() {
       </Box>
       <Box className="results-heading">
         <Typography>Products</Typography>
-        <Typography component="span">({visibleProducts.length} Products)</Typography>
+        <Typography component="span">({total} Products)</Typography>
       </Box>
       <Button className="mobile-filter-button" onClick={() => setFiltersOpen(true)}>
         Show Filters
@@ -78,7 +94,7 @@ export function SearchPage() {
           <SearchToolbar view={view} onViewChange={setView} />
           {loading && <Typography>Loading products…</Typography>}
           {error && <Typography color="error">{error}</Typography>}
-          {!loading && !error && <ProductGrid products={visibleProducts} view={view} />}
+          {!loading && !error && <ProductGrid products={products} view={view} />}
         </Box>
       </Box>
       <Drawer

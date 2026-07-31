@@ -24,6 +24,7 @@ export interface ProductsResponse {
 
 export interface FilterState {
   price: [number, number];
+  moq: string;
   productCertificates: string[];
   supplierCertificates: string[];
   locations: string[];

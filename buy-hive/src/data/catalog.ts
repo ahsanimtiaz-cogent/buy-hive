@@ -1,3 +1,5 @@
+export const maxPrice = 6900;
+
 export const productCertificates = [
   "FDA",
   "Certificate of Conformity",
