@@ -1,10 +1,12 @@
 import { ExpandMore, GridView, Search } from "@mui/icons-material";
 import { Box, Button, MenuItem, Select, TextField } from "@mui/material";
 import type { SelectChangeEvent } from "@mui/material/Select";
+import { ALL_CATEGORIES } from "../../../data/catalog";
 
 interface SearchBarProps {
   query: string;
   category: string;
+  categories: string[];
   onQueryChange: (value: string) => void;
   onCategoryChange: (event: SelectChangeEvent) => void;
   onSearch: () => void;
@@ -14,6 +16,7 @@ interface SearchBarProps {
 export function SearchBar({
   query,
   category,
+  categories,
   onQueryChange,
   onCategoryChange,
   onSearch,
@@ -47,19 +50,12 @@ export function SearchBar({
             variant="standard"
             disableUnderline
           >
-            <MenuItem value="All Categories">All Categories</MenuItem>
-            <MenuItem value="ppe">PPE</MenuItem>
-            <MenuItem value="health_&_medical">Health &amp; Medical</MenuItem>
-            <MenuItem value="garden_&_outdoor">Garden &amp; Outdoor</MenuItem>
-            <MenuItem value="sports_&_fitness">Sports &amp; Fitness</MenuItem>
-            <MenuItem value="other">Other</MenuItem>
-            <MenuItem value="baby">Baby</MenuItem>
-            <MenuItem value="beauty_&_personal_care">
-              Beauty &amp; Personal Care
-            </MenuItem>
-            <MenuItem value="home_kitchen_&_office">
-              Home, Kitchen &amp; Office
-            </MenuItem>
+            <MenuItem value={ALL_CATEGORIES}>{ALL_CATEGORIES}</MenuItem>
+            {categories.map((item) => (
+              <MenuItem value={item} key={item}>
+                {item}
+              </MenuItem>
+            ))}
           </Select>
         </Box>
       </Box>

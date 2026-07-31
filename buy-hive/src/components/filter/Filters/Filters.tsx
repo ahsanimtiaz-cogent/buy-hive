@@ -8,19 +8,23 @@ import {
   Typography,
 } from "@mui/material";
 import type { FilterState } from "../../../types/catalog";
-import {
-  locations,
-  productCertificates,
-  supplierCertificates,
-} from "../../../data/catalog";
 import { FilterSection } from "../FilterSection";
 
 interface FiltersProps {
   values: FilterState;
   onChange: (values: FilterState) => void;
+  certificates: string[];
+  locations: string[];
+  priceRange: [number, number];
 }
 
-export function Filters({ values, onChange }: FiltersProps) {
+export function Filters({
+  values,
+  onChange,
+  certificates,
+  locations,
+  priceRange,
+}: FiltersProps) {
   return (
     <Paper className="filters-panel" elevation={0}>
       <Typography className="filter-title">Price</Typography>
@@ -55,8 +59,8 @@ export function Filters({ values, onChange }: FiltersProps) {
       </Box>
       <Slider
         value={values.price}
-        min={0}
-        max={6900}
+        min={priceRange[0]}
+        max={priceRange[1]}
         onChange={(_, value) =>
           onChange({ ...values, price: value as [number, number] })
         }
@@ -65,7 +69,10 @@ export function Filters({ values, onChange }: FiltersProps) {
       <Box className="filter-section moq-section">
         <Typography className="filter-title">MOQ</Typography>
         <TextField
+          value={values.moq}
+          onChange={(event) => onChange({ ...values, moq: event.target.value })}
           placeholder="Less than"
+          type="number"
           variant="standard"
           fullWidth
           className="filter-search moq-input"
@@ -74,20 +81,12 @@ export function Filters({ values, onChange }: FiltersProps) {
       </Box>
       <FilterSection
         title="Product Certification"
-        items={productCertificates}
+        items={certificates}
         selected={values.productCertificates}
         onChange={(productCertificates) =>
           onChange({ ...values, productCertificates })
         }
         searchable
-      />
-      <FilterSection
-        title="Supplier Certification"
-        items={supplierCertificates}
-        selected={values.supplierCertificates}
-        onChange={(supplierCertificates) =>
-          onChange({ ...values, supplierCertificates })
-        }
       />
       <FilterSection
         title="Supplier Location"

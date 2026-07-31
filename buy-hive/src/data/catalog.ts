@@ -1,3 +1,15 @@
-export const productCertificates = ['FDA', 'Certificate of Conformity', 'CE', 'ASTM', 'GB', 'Certificate of Compliance', 'Intertek', 'ROHS', 'FCC', 'EN', 'EPA', 'ISO 11439:2000', 'SGS', 'Green Clean Certificate', 'ISO 11439:2013']
-export const supplierCertificates = ['DUNS', 'DRS', 'ISO 13485', 'ISO 9001', 'ISO 9001:2015', 'GMP']
-export const locations = ['Hong Kong S.A.R', 'India', 'China', 'Vietnam', 'United States', 'Canada', 'Australia', 'United Kingdom', 'Korea, Republic of']
+/** Sentinel for the category Select meaning "don't filter by category". */
+export const ALL_CATEGORIES = "All Categories";
+
+/**
+ * "relevance" and "ratings_desc" have no backing field on the API and fall back
+ * to natural order there.
+ */
+export const sortOptions = [
+  { value: "relevance", label: "Relevance" },
+  { value: "latest", label: "Latest" },
+  { value: "price_asc", label: "Price Low to High" },
+  { value: "price_desc", label: "Price High to Low" },
+  { value: "moq_asc", label: "MOQ Low to High" },
+  { value: "ratings_desc", label: "Ratings High to Low" },
+];

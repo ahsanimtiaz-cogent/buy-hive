@@ -7,11 +7,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import {
-  ExpandMore,
-  Menu,
-  ShoppingCartOutlined,
-} from "@mui/icons-material";
+import { ExpandMore, Menu, ShoppingCartOutlined } from "@mui/icons-material";
 import { Logo } from "../../common/Logo";
 
 interface HeaderProps {
