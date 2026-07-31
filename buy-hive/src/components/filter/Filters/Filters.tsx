@@ -8,11 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import type { FilterState } from "../../../types/catalog";
-import {
-  locations,
-  productCertificates,
-  supplierCertificates,
-} from "../../../data/catalog";
+import { locations, productCertificates, supplierCertificates } from "../../../data/catalog";
 import { FilterSection } from "../FilterSection";
 
 interface FiltersProps {
@@ -57,9 +53,7 @@ export function Filters({ values, onChange }: FiltersProps) {
         value={values.price}
         min={0}
         max={6900}
-        onChange={(_, value) =>
-          onChange({ ...values, price: value as [number, number] })
-        }
+        onChange={(_, value) => onChange({ ...values, price: value as [number, number] })}
         className="price-slider"
       />
       <Box className="filter-section moq-section">
@@ -76,18 +70,14 @@ export function Filters({ values, onChange }: FiltersProps) {
         title="Product Certification"
         items={productCertificates}
         selected={values.productCertificates}
-        onChange={(productCertificates) =>
-          onChange({ ...values, productCertificates })
-        }
+        onChange={(productCertificates) => onChange({ ...values, productCertificates })}
         searchable
       />
       <FilterSection
         title="Supplier Certification"
         items={supplierCertificates}
         selected={values.supplierCertificates}
-        onChange={(supplierCertificates) =>
-          onChange({ ...values, supplierCertificates })
-        }
+        onChange={(supplierCertificates) => onChange({ ...values, supplierCertificates })}
       />
       <FilterSection
         title="Supplier Location"
@@ -102,9 +92,7 @@ export function Filters({ values, onChange }: FiltersProps) {
           control={
             <Checkbox
               checked={values.stock}
-              onChange={(event) =>
-                onChange({ ...values, stock: event.target.checked })
-              }
+              onChange={(event) => onChange({ ...values, stock: event.target.checked })}
             />
           }
           label="Stock in USA"

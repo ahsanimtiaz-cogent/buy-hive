@@ -8,11 +8,7 @@ export function Logo() {
       className="header-logo"
       aria-label="BuyHive home"
     >
-      <Box
-        component="img"
-        src="/buyhive-logo.png"
-        alt="buyhive — sourcing made easy"
-      />
+      <Box component="img" src="/buyhive-logo.png" alt="buyhive — sourcing made easy" />
     </Box>
   );
 }

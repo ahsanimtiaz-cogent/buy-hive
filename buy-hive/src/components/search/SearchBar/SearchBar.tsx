@@ -21,11 +21,7 @@ export function SearchBar({
 }: SearchBarProps) {
   return (
     <Box className="search-shell">
-      <Button
-        className="categories-button"
-        startIcon={<GridView />}
-        onClick={onCategories}
-      >
+      <Button className="categories-button" startIcon={<GridView />} onClick={onCategories}>
         Categories
       </Button>
       <Box className="search-field-wrap">
@@ -54,12 +50,8 @@ export function SearchBar({
             <MenuItem value="sports_&_fitness">Sports &amp; Fitness</MenuItem>
             <MenuItem value="other">Other</MenuItem>
             <MenuItem value="baby">Baby</MenuItem>
-            <MenuItem value="beauty_&_personal_care">
-              Beauty &amp; Personal Care
-            </MenuItem>
-            <MenuItem value="home_kitchen_&_office">
-              Home, Kitchen &amp; Office
-            </MenuItem>
+            <MenuItem value="beauty_&_personal_care">Beauty &amp; Personal Care</MenuItem>
+            <MenuItem value="home_kitchen_&_office">Home, Kitchen &amp; Office</MenuItem>
           </Select>
         </Box>
       </Box>

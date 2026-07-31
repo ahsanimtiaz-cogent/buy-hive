@@ -1,17 +1,5 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import {
-  ExpandMore,
-  Menu,
-  ShoppingCartOutlined,
-} from "@mui/icons-material";
+import { AppBar, Box, Button, IconButton, Stack, Toolbar, Typography } from "@mui/material";
+import { ExpandMore, Menu, ShoppingCartOutlined } from "@mui/icons-material";
 import { Logo } from "../../common/Logo";
 
 interface HeaderProps {
@@ -39,10 +27,7 @@ export function Header({ onMenu }: HeaderProps) {
           <Typography component="a" href="https://thebuyhive.com">
             Expert Sourcing
           </Typography>
-          <Typography
-            component="a"
-            href="https://thebuyhive.com/contract-manufacturing"
-          >
+          <Typography component="a" href="https://thebuyhive.com/contract-manufacturing">
             Contract Manufacturing
           </Typography>
           <Typography component="a" href="/buy/" className="active-nav">
@@ -52,17 +37,10 @@ export function Header({ onMenu }: HeaderProps) {
             Financing
           </Typography>
           <Typography component="a" href="#about-us">
-            About Us{" "}
-            <ExpandMore
-              sx={{ fontSize: 20, verticalAlign: "middle", color: "#9b9b9b" }}
-            />
+            About Us <ExpandMore sx={{ fontSize: 20, verticalAlign: "middle", color: "#9b9b9b" }} />
           </Typography>
         </Stack>
-        <Stack
-          direction="row"
-          spacing={1}
-          sx={{ ml: "auto", alignItems: "center" }}
-        >
+        <Stack direction="row" spacing={1} sx={{ ml: "auto", alignItems: "center" }}>
           <Button className="register-button">Register</Button>
           <Button
             className="signin-button"
