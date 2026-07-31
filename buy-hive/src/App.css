@@ -2,6 +2,7 @@
   --blue: #00b2c9;
   --green: #29b574;
   --ink: #080b12;
+  --dark: #231f20;
   --muted: #8d8f94;
   --smoke: #f1f1f1;
   --border: #d9d9d9;
@@ -178,7 +179,7 @@ body {
   display: flex;
   gap: 16px;
   align-items: baseline;
-  margin-top: 39px;
+  margin-top: 15px;
   font-size: 20px;
 }
 .results-heading span {
@@ -189,7 +190,7 @@ body {
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 40px;
-  margin-top: 29px;
+  margin-top: 14px;
 }
 .filters-panel {
   border: 1px solid #dce1e5;
@@ -631,5 +632,193 @@ body {
   }
   .menu-drawer .MuiIconButton-root {
     align-self: flex-end;
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #f2f2f2;
+  color: var(--dark, #231f20);
+  font-family: "Avenir LT Pro", Avenir, Arial, sans-serif;
+}
+.footer-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  padding: 56px 72px 0;
+}
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+}
+.footer-heading {
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+}
+.footer-brand {
+  flex: 0 1 31%;
+  min-width: 300px;
+}
+.footer-blurb {
+  padding-top: 24px;
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+  opacity: 0.75;
+}
+.footer-newsletter-title {
+  padding-top: 36px;
+}
+.footer-form {
+  padding-top: 8px;
+}
+.footer-label {
+  display: block;
+  font-size: 14px !important;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+.footer-label span {
+  color: #e53935;
+}
+.footer-input {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+}
+.footer-input .MuiOutlinedInput-root {
+  background: #fff;
+  border-radius: 999px;
+  height: 38px;
+}
+.footer-input .MuiOutlinedInput-notchedOutline {
+  border-color: var(--border);
+}
+.footer-submit {
+  margin-top: 24px !important;
+  background: var(--blue) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  text-transform: none !important;
+  font-size: 17px !important;
+  padding: 8px 30px !important;
+  box-shadow: none !important;
+}
+.footer-follow {
+  display: flex;
+  align-items: center;
+  padding-top: 32px;
+}
+.footer-social {
+  display: flex;
+  padding-left: 24px;
+  gap: 8px;
+}
+.footer-social .MuiIconButton-root {
+  width: 44px;
+  height: 44px;
+  background: rgba(35, 31, 32, 0.1);
+  color: var(--dark, #231f20);
+}
+.footer-col {
+  flex: 0 0 auto;
+}
+.footer-links {
+  padding: 16px 0 0;
+  margin: 0;
+  list-style: none;
+  font-size: 17px;
+  opacity: 0.75;
+}
+.footer-links li {
+  padding: 4px 0;
+}
+.footer-links a {
+  color: inherit;
+}
+.footer-offices .office-name {
+  padding: 4px 0;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+}
+.footer-offices .office-address {
+  padding: 4px 0;
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+}
+.footer-offices > div + div {
+  padding-top: 20px;
+}
+.footer-accept {
+  padding-top: 24px;
+}
+.payment-row {
+  display: flex;
+  align-items: center;
+}
+.payment-row img {
+  display: block;
+}
+.payment-row > img:nth-of-type(3) {
+  margin-left: 4px;
+}
+.payment-ach {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+.payment-ach-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--dark, #231f20);
+  opacity: 0.5;
+  font-size: 16px;
+}
+.footer-bottom ul {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-bottom a {
+  color: inherit;
+}
+
+@media (max-width: 1050px) {
+  .footer-inner {
+    padding: 48px 24px 0;
+  }
+  .footer-brand {
+    flex: 0 0 100%;
+  }
+  .footer-col {
+    flex: 0 0 45%;
+  }
+}
+@media (max-width: 767px) {
+  .footer-inner {
+    padding: 40px 18px 0;
+  }
+  .footer-col {
+    flex: 0 0 100%;
+  }
+  .footer-bottom {
+    gap: 12px;
+  }
+  .footer-bottom ul {
+    gap: 24px;
   }
 }

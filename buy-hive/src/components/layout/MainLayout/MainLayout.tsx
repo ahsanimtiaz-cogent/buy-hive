@@ -2,6 +2,7 @@ import { Box, Container, Drawer, IconButton, Typography } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { useState, type ReactNode } from "react";
 import { Header } from "../Header";
+import { Footer } from "../Footer";
 import "../../../App.css";
 import "../../../overrides.css";
 
@@ -17,6 +18,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         <Header onMenu={() => setMenuOpen(true)} />
         {children}
       </Container>
+      <Footer />
       <Drawer anchor="right" open={menuOpen} onClose={() => setMenuOpen(false)}>
         <Box className="menu-drawer">
           <IconButton onClick={() => setMenuOpen(false)}>
